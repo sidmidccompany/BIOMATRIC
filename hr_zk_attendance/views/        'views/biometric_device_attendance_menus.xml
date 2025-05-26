@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Main menu item -->
+    <menuitem id="menu_biometric_device_root"
+              name="Biometric Devices"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="100"/>
+
+    <!-- Device Configuration menu -->
+    <menuitem id="menu_biometric_device_configuration"
+              name="Device Configuration"
+              parent="menu_biometric_device_root"
+              action="biometric_device_details_action"
+              sequence="10"/>
+
+    <!-- Attendance Reports menu -->
+    <menuitem id="menu_biometric_attendance_report"
+              name="Attendance Reports"
+              parent="menu_biometric_device_root"
+              sequence="20"/>
+
+    <!-- Daily Attendance Report submenu -->
+    <menuitem id="menu_daily_attendance_report"
+              name="Daily Attendance"
+              parent="menu_biometric_attendance_report"
+              action="action_daily_attendance_report"
+              sequence="10"/>
+</odoo>
