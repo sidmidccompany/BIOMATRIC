@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Inherited hr employee for adding new field-->
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit.hr.zk.attendance</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_type']"
+                   position="after">
+                <field name="device_id_num"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Employee form -->
+    <record id="view_employee_form_inherit_biometric" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.biometric</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']//group" position="inside">
+                <group string="Biometric Device" name="biometric_device">
+                    <field name="device_id_num" groups="hr_attendance.group_hr_attendance_user"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Employee search -->
+    <record id="view_employee_search_inherit_biometric" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit.biometric</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="device_id_num"/>
+            </field>
+        </field>
+    </record>
+</odoo>
